@@ -11,8 +11,16 @@
   height: 30rem;
   border-radius: 5px;
   padding: 2.5em;
+  margin: 1em;
 }
-
+.display-user {
+  background-color: white;
+  width: 20rem;
+  height: 10rem;
+  border-radius: 5px;
+  padding: 2.5em;
+  margin: 1em;
+}
 .form-conatiner {
   display: flex;
   flex-direction: column;

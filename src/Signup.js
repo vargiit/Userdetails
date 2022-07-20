@@ -1,27 +1,13 @@
 import { useState } from "react";
-import axios from "axios";
-function Signup(props) {
+function Signup({ formData }) {
   const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [formdata, setformData] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const body = { name: name, password: password };
-    let apiData = await axios.post(
-      "https://62d7a5c251e6e8f06f1f9d89.mockapi.io/info",
-      body
-    );
-
-    setformData(
-      `Name: ${apiData.data.name} Password: ${apiData.data.password}`
-    );
-
-    if (apiData.status === 201) {
-      setName("");
-      setPassword("");
-    }
+    formData({ name, email, phone });
   };
 
   return (
@@ -36,19 +22,24 @@ function Signup(props) {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <label htmlFor="password">Password</label>
+        <label htmlFor="email">Email</label>
         <input
-          id="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="phoneNumber">Phone Number</label>
+        <input
+          id="phoneNumber"
+          type="phoneNumber"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
         />
 
         <input type="submit" value="submit" />
       </form>
-      <div>
-        <p>{formdata}</p>
-      </div>
+      <div></div>
     </div>
   );
 }
