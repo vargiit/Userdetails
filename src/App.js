@@ -18,7 +18,12 @@ function App() {
   return (
     <div className="App">
       <Signup formData={handleFormData}></Signup>
-      <Displaydata getUserData={userList}></Displaydata>
+      <div className="flex-container">
+        <Displaydata
+          getUserData={userList}
+          className="flex-container"
+        ></Displaydata>
+      </div>
     </div>
   );
 }
